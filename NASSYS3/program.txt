@@ -1,0 +1,17 @@
+Changes to the NASSYS3 code
+
+So the original code
+  0404 22 6b 0c		ld	(rsp),hl 
+  0407 ef		rst	prs 
+  0408 ..			defm	"-- NAS-SYS 3 --" 
+  0417 0d 00		defb	cr,0 
+becomes:
+  0404 22 6b 0c		ld	(rsp),hl 
+  0407			; added extra instructions  
+  0407 db ef		in	a,(vidprt) 
+  0409			; end of added instructions 
+  0409 ef		rst	prs 
+  040a ..			defm	"- NAS-SYS 3 -" 
+  0417 0d 00		defb	cr,0 
+
+
