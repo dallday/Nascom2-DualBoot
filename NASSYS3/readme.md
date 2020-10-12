@@ -6,4 +6,22 @@ I decided that the idea used in NAS-SYS 3A for the Nascom 3 was a good way to go
 
 The switch over is handled by reading from Port 0xEF, needing 2 bytes ( 0xdb 0xef ), so by shortening the actual message it is possible to get the 2 bytes needed to do the trick. 
 
+So the original code
+``` Z80 code
+    0404 22 6b 0c		ld	(rsp),hl 
+    0407 ef		rst	prs 
+    0408 ..			defm	"-- NAS-SYS 3 --" 
+    0417 0d 00		defb	cr,0 
+```
+becomes
+``` Z80 code
+    0404 22 6b 0c		ld	(rsp),hl 
+    0407			; added extra instructions  
+    0407 db ef		in	a,(vidprt) 
+    0409			; end of added instructions 
+    0409 ef		rst	prs 
+    040a ..			defm	"- NAS-SYS 3 -" 
+    0417 0d 00		defb	cr,0 
+```
+
 and then a reprogrammed monitor chip, using 28C16 EEPROM, and all is well. 
