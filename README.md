@@ -12,7 +12,7 @@ The changes involved a number of separate parts.
 4. As I was using the MAP80 VFC video switch modifying the NASSYS3 rom to switch over the the Nascom display.
 
 ## 1.Adding switches
- This was done by using a wooden front panel for the switches with a IDC cable attaching it to the back lane.
+ This was done by using a wooden front panel for the switches with a IDC cable attaching it to the back plane.
  The lines on the backplane I used were
  Pin 7 - main CPM/NASSYS3 switch
  Pin 66 - activate BankA Roms
@@ -28,10 +28,10 @@ The changes involved a number of separate parts.
  The major issue here was that the VFC card did not have any edge connectors for pin 7. I used some narrow sticky back copper strip, normally sold as a slug deterant, and created an edge connector. To give some assurance that the connector was working I added an Resistor+LED between the 5v on the board and connection "b". The LED lights up when the CP/M mode is selected.
  
  ## 4. Modifying NASSYS3
- Taking an idea from the monitor for NASCOM3 I was able to add the required code to the normal startup process by shortening the actual startup -- NASSYS 3 -- message. I programmed a new 28C16 chip for the Monitor ROM. These chips are easy to program as they only use the standard 5v lines. See my other project on programming the 28c16.
+ Taking an idea from the monitor for NASCOM3 I was able to add the required code to the normal startup process by shortening the actual startup -- NASSYS 3 -- message. I programmed a new 28C16 EEPROM chip for the Monitor ROM. These chips are easy to program as they only use the standard 5v lines. See my other project on programming the 28c16.
 
 ## Finally 
-Hopefully there is enough information here to allow you to understand what I did but if you have any questions please le me know.
+Hopefully there is enough information here to allow you to understand what I did but if you have any questions please let me know.
 
 If anybody wants one of the PCB board then let me know - I had to get 10 done for the first batch. Otherwise you can checkout the Kicad version in this project.
 
