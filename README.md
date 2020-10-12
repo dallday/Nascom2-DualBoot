@@ -19,8 +19,8 @@ The changes involved a number of separate parts.
  Pin 65 - activate BankB Roms.
  The switches either allow the lines to float or pull them to 0v. Pull up resistors on the various cards handle the pulling the lines high.
  
- ## 2. "daughter" board
- This I called CPMSwitch and created a PCB using KiCad. It sits in the LKS1 socket and has 5 flying leads to provide power and connections to the 3 lines on the back plane. The board does not sit quite how I wanted it due to a slight mistake in the PCB layout but it does sit ok on my system.
+ ## 2. CPMSwitch "daughter" board
+ I created a PCB using KiCad to control the links in socket LKS1. It sits in the LKS1 socket and has 5 flying leads to provide power and connections to the 3 lines on the back plane. The board does not sit quite how I wanted it due to a slight mistake in the PCB layout but it does sit ok on my system.
  
  ## 3. MAP80 VFC modifications
  Link 4 on the VFC card selects if the Boot Rom is enabled or not at the start. The connection b on the link feeds the input of a logic gate and connection "a" grounds that feed and connection "c" connects it to 5v. I used a 10k resistor between connectors "b" and "c" so the normal state is disabled. I connected Pin 7 on the backplane to connection "b" so that when pulled low by the switch it would be enabled.
